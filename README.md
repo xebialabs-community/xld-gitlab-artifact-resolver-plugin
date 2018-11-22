@@ -39,3 +39,13 @@ Note:  XLD version should not be lower than lowest supported version.  See <http
 
 ## References
 
+![GitLAB token crendentials](images/TokenCredentials.png)
+
+![Resolver](images/gitlabResolver.png)
+
+
+
+
+
+
+
