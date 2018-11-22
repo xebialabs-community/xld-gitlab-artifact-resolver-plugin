@@ -22,6 +22,9 @@ import static com.xebialabs.deployit.plugin.api.udm.Metadata.ConfigurationItemRo
 @TypeIcon(value = "icons/types/lock.svg")
 public class TokenCredentials extends BaseConfigurationItem implements Credentials {
 
+    @Property(description = "GitLab URL")
+    private String gitlabURL;
+
     @Property(description = "Token")
     private String token;
 
@@ -31,5 +34,13 @@ public class TokenCredentials extends BaseConfigurationItem implements Credentia
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getGitlabURL() {
+        return gitlabURL;
+    }
+
+    public void setGitlabURL(String gitlabURL) {
+        this.gitlabURL = gitlabURL;
     }
 }

@@ -12,6 +12,7 @@ package com.xebialabs.community.xldeploy;
 import com.xebialabs.deployit.engine.spi.artifact.resolution.ArtifactResolver;
 import com.xebialabs.deployit.engine.spi.artifact.resolution.ArtifactResolver.Resolver;
 import com.xebialabs.deployit.engine.spi.artifact.resolution.ResolvedArtifactFile;
+import com.xebialabs.deployit.plugin.api.reflect.Type;
 import com.xebialabs.deployit.plugin.api.udm.artifact.SourceArtifact;
 
 import java.io.ByteArrayInputStream;
@@ -38,19 +39,20 @@ public class GitLabArtifactResolver implements ArtifactResolver {
 
     @Override
     public ResolvedArtifactFile resolveLocation(SourceArtifact artifact) {
-        
+
         System.out.println("GitLabArtifactResolver:" + artifact.getId());
-        
+
         Credentials credentials = artifact.getCredentials();
         if (credentials == null) {
             throw new RuntimeException("Associate a Token credential to your deployable");
         }
 
         TokenCredentials tc = (TokenCredentials) credentials;
+        System.out.println("GitLabArtifactResolver: connect to " + tc.getGitlabURL());
 
-        GitlabAPI gitlabAPI = GitlabAPI.connect("https://gitlab.com", tc.getToken());
+        GitlabAPI gitlabAPI = GitlabAPI.connect(tc.getGitlabURL(), tc.getToken());
         System.out.println(gitlabAPI);
-
+        
         try {
             Map<String, String> decodeGitLabURI = decodeGitLabURI(artifact.getFileUri());
             GitlabProject project = gitlabAPI.getProject(decodeGitLabURI.get("project"));
