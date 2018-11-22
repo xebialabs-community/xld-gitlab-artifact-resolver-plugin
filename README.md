@@ -10,6 +10,7 @@
 [xld-gitlab-artifact-resolver-plugin-license-url]: https://opensource.org/licenses/MIT
 [xld-gitlab-artifact-resolver-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xld-gitlab-artifact-resolver-plugin/total.svg
 
+
 ## Preface
 
 This document describes the functionality provided by the XL Deploy Artifact resolver plugin. it allows to set a gitlab reference in the 'File Uri' property of a deployable.
