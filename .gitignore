@@ -1,0 +1,8 @@
+.gradle
+build
+temp
+supervisord.*
+xl-deploy-8.2.1-server
+*.iml
+.idea/
+out/
