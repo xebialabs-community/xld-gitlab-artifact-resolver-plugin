@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.xebialabs.deployit.plugin.credentials.Credentials;
 import org.apache.commons.codec.binary.Base64;
 import org.gitlab.api.GitlabAPI;
 
@@ -32,18 +33,22 @@ import org.gitlab.api.models.GitlabProject;
 import org.gitlab.api.models.GitlabRepositoryFile;
 
 
-
 @Resolver(protocols = {"gitlab"})
 public class GitLabArtifactResolver implements ArtifactResolver {
 
     @Override
     public ResolvedArtifactFile resolveLocation(SourceArtifact artifact) {
-
-
+        
         System.out.println("GitLabArtifactResolver:" + artifact.getId());
+        
+        Credentials credentials = artifact.getCredentials();
+        if (credentials == null) {
+            throw new RuntimeException("Associate a Token credential to your deployable");
+        }
 
-        GitlabAPI gitlabAPI = GitlabAPI.connect("https://gitlab.com", "hUqgKSEqKrq5n1dXxSkN");
+        TokenCredentials tc = (TokenCredentials) credentials;
 
+        GitlabAPI gitlabAPI = GitlabAPI.connect("https://gitlab.com", tc.getToken());
         System.out.println(gitlabAPI);
 
         try {
@@ -117,8 +122,9 @@ public class GitLabArtifactResolver implements ArtifactResolver {
 
         GitlabProject project = gitlabAPI.getProject("9539714");
         System.out.println(project.getName());
+        //gitlab:9539714:1.1.0:a/b/c/e/f/namespace.yaml
 
-        GitlabRepositoryFile master = gitlabAPI.getRepositoryFile(project, "namespace.yaml", "master");
+        GitlabRepositoryFile master = gitlabAPI.getRepositoryFile(project, "a/b/c/d/e/f/namespace.yaml", "master");
         System.out.println("master = " + master);
 
         Base64 decoder = new Base64();
