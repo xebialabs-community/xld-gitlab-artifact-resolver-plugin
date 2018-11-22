@@ -35,9 +35,7 @@ Note:  XLD version should not be lower than lowest supported version.  See <http
 * Copy [java-gitlab-api-4.1.0.jar](http://central.maven.org/maven2/org/gitlab/java-gitlab-api/4.1.0/java-gitlab-api-4.1.0.jar) into the `XL_DEPLOY|RELEASE_SERVER/plugins` directory
 * Restart the XL Deploy|Release server.
 
-## Features/Usage/Types/Tasks
-
-## References
+## Features
 
 ![GitLAB token crendentials](images/TokenCredentials.png)
 
