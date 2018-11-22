@@ -1,4 +1,4 @@
-# XL Deploy GitLab artifact resolver plugin v1.0.0
+# XL Deploy GitLab artifact resolver plugin 
 
 [![Build Status][xld-gitlab-artifact-resolver-plugin-travis-image]][xld-gitlab-artifact-resolver-plugin-travis-url]
 [![License: MIT][xld-gitlab-artifact-resolver-plugin-license-image]][xld-gitlab-artifact-resolver-plugin-license-url]
