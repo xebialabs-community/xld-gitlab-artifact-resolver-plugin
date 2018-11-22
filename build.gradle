@@ -25,7 +25,7 @@ dependencies {
     compile group: 'org.gitlab', name: 'java-gitlab-api', version: '4.1.0'
 }
 
-version = "1.0.0"
+//version = "1.0.0"
 
 // sourceCompatibility = 1.7
 // targetCompatibility = 1.7
