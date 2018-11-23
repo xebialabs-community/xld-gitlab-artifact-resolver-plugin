@@ -15,7 +15,7 @@
 
 This document describes the functionality provided by the XL Deploy Artifact resolver plugin. it allows to set a gitlab reference in the 'File Uri' property of a deployable.
 it works with a new kind of credentials than can be defined in the Configuration Node : `credentials.TokenCredentials`
-The gitlab uri is : `gitlab:projectid:ref:file`. Example: `gitlab:9539714:1.2.0:benoit/namespace.yaml refers to 
+The gitlab uri is : `gitlab:projectid:ref:file`. Example: `gitlab:9539714:1.2.0:benoit/namespace.yaml` refers to 
 * a gitlab server referenced into the `credentials.TokenCredentials`,
 * the project id `9539714`
 * the ref (tag) `1.2.0` (the  reference can be `master` but it is a bad practice)
